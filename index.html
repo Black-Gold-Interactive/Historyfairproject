@@ -315,14 +315,14 @@
             noise.stop(t + 0.02);
         }
 
-        // ASMR scroll sound
+        // ASMR scroll wheel sound generator (louder gain matched to mouse click level)
         function playASMRScroll() {
             initAudio();
             if (!audioCtx) return;
 
             const t = audioCtx.currentTime;
 
-            const bufferSize = audioCtx.sampleRate * 0.01;
+            const bufferSize = audioCtx.sampleRate * 0.012;
             const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
             const output = buffer.getChannelData(0);
             for (let i = 0; i < bufferSize; i++) {
@@ -334,19 +334,20 @@
 
             const filter = audioCtx.createBiquadFilter();
             filter.type = 'bandpass';
-            filter.frequency.setValueAtTime(3500, t);
-            filter.Q.setValueAtTime(4.0, t);
+            filter.frequency.setValueAtTime(2800, t);
+            filter.Q.setValueAtTime(3.0, t);
 
             const gain = audioCtx.createGain();
-            gain.gain.setValueAtTime(0.08, t);
-            gain.gain.exponentialRampToValueAtTime(0.0005, t + 0.01);
+            // Increased gain to match mouse click volume
+            gain.gain.setValueAtTime(0.35, t);
+            gain.gain.exponentialRampToValueAtTime(0.001, t + 0.012);
 
             noise.connect(filter);
             filter.connect(gain);
             gain.connect(audioCtx.destination);
 
             noise.start(t);
-            noise.stop(t + 0.01);
+            noise.stop(t + 0.012);
         }
 
         // Multi-page switcher
@@ -372,7 +373,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Global mouse listeners
+        // Global mouse click listeners
         window.addEventListener('mousedown', () => {
             playASMRClick(1.0);
         });
