@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My History Fair Website - Panama Canal</title>
+    <title>Conquering the Land and Disease - Panama Canal</title>
     <style>
         body {
             background-color: lightblue;
-            font-family: Arial;
+            font-family: Arial, sans-serif;
             color: black;
             margin: 0;
             padding: 0;
@@ -18,44 +18,67 @@
             background-color: white;
             padding: 15px;
             margin: 0;
+            border-bottom: 2px solid navy;
         }
 
         h2 {
             color: darkblue;
             background-color: lightyellow;
-            padding: 5px;
+            padding: 8px;
             border: 2px solid orange;
+            margin-top: 0;
         }
 
         .navbar {
             background-color: navy;
             text-align: center;
             padding: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .navbar a {
             color: white;
             font-weight: bold;
-            font-size: 18px;
-            margin-left: 15px;
-            margin-right: 15px;
+            font-size: 16px;
+            margin: 0 10px;
             text-decoration: none;
             cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .navbar a:hover, .navbar a.active {
+            background-color: #000080;
+            text-decoration: underline;
         }
 
         .main-box {
             background-color: white;
             width: 90%;
+            max-width: 900px;
             margin: 20px auto;
-            padding: 20px;
+            padding: 25px;
             border: 3px solid black;
+            min-height: 500px;
+        }
+
+        /* Page Display Logic */
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
         }
 
         .box {
             background-color: #f0f0f0;
             border: 2px dashed blue;
             padding: 15px;
-            margin: 10px;
+            margin: 15px 0;
         }
 
         .site-image {
@@ -76,16 +99,61 @@
 
         ul, ol {
             font-size: 16px;
+            line-height: 1.6;
         }
 
         p {
             font-size: 16px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .source-link {
             color: blue;
             text-decoration: underline;
+        }
+
+        /* Interactive Buttons */
+        .btn-container {
+            text-align: center;
+            margin: 30px 0 10px 0;
+        }
+
+        .cta-btn {
+            background-color: #008CBA;
+            color: white;
+            padding: 14px 28px;
+            font-size: 18px;
+            font-weight: bold;
+            border: 2px solid darkblue;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: transform 0.1s, background-color 0.2s;
+        }
+
+        .cta-btn:hover {
+            background-color: #005f73;
+            transform: scale(1.03);
+        }
+
+        .cta-btn:active {
+            transform: scale(0.97);
+        }
+
+        .next-btn {
+            background-color: darkblue;
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+        }
+
+        .next-btn:hover {
+            background-color: #000080;
         }
 
         .footer {
@@ -101,26 +169,36 @@
     <h1>Conquering the Land and Disease, The Panama Canal</h1>
 
     <div class="navbar">
-        <a href="#home">HOME</a>
-        <a href="#medical">MEDICAL INNOVATION</a>
-        <a href="#engineering">LOCK SYSTEM</a>
-        <a href="#impact">IMPACT</a>
-        <a href="#sources">SOURCES</a>
+        <a onclick="showPage('home')" id="nav-home" class="active">HOME</a>
+        <a onclick="showPage('medical')" id="nav-medical">MEDICAL INNOVATION</a>
+        <a onclick="showPage('engineering')" id="nav-engineering">LOCK SYSTEM</a>
+        <a onclick="showPage('impact')" id="nav-impact">IMPACT</a>
+        <a onclick="showPage('sources')" id="nav-sources">SOURCES</a>
     </div>
 
     <div class="main-box">
 
-        <div id="home">
+        <!-- PAGE 1: HOME -->
+        <div id="home" class="page-content active">
             <h2>Home Page</h2>
-            <p>Building the Panama Canal was one of the most dangerous and massive engineering projects in human history. In the 1880s, a French team tried to dig the canal, but tropical diseases and harsh terrain killed over 20,000 workers, forcing them to give up the project.</p>
+            <p>Building the Panama Canal was one of the most dangerous and massive engineering projects in human history. In the 1880s, a French team tried to dig the canal, but tropical diseases and harsh terrain killed over 20,000 workers, forcing them to abandon the project entirely.</p>
             
+            <div class="btn-container">
+                <button class="cta-btn" onclick="showPage('medical')">EXPLORE THE EXHIBIT ➔</button>
+            </div>
+
             <img class="site-image" src="digging.jpg" alt="Train wreck and excavation work in Culebra Cut">
             <div class="caption">Primary Source Photo (1910): Workers stand beside a derailed dirt car (Car 258) and heavy excavation equipment during work in the treacherous Culebra Cut. (Source: U.S. Library of Congress)</div>
 
             <p>When the United States took over construction in 1904, workers faced constant landslides, equipment accidents like train derailments in the steep cuts, and deadly disease outbreaks. Engineers had heavy machinery, but if workers were sick or injured, progress ground to a halt. Success required revolutionary breakthroughs in both sanitation and mechanical engineering.</p>
+            
+            <div class="btn-container">
+                <button class="next-btn" onclick="showPage('medical')">Next Page: Medical Innovation ➔</button>
+            </div>
         </div>
 
-        <div id="medical">
+        <!-- PAGE 2: MEDICAL INNOVATION -->
+        <div id="medical" class="page-content">
             <h2>The Medical Innovation, Defeating Yellow Fever</h2>
             <p>For centuries, people incorrectly believed Yellow Fever was spread by foul air or dirty clothes. Cuban physician Dr. Carlos Finlay and U.S. Army doctor Walter Reed proved that Yellow Fever and Malaria were actually transmitted by mosquitoes.</p>
             <p>Dr. William Gorgas headed the sanitation campaign in the Canal Zone. Despite skepticism, Gorgas implemented a thorough mosquito eradication plan across the territory.</p>
@@ -134,9 +212,14 @@
                 <li><b>Fumigation Squads:</b> Crews systematically fumigated buildings using pyrethrum powder to kill adult mosquitoes.</li>
             </ul>
             <p>By December 1905, Yellow Fever cases plummeted, and by 1906, the disease was eradicated from the Canal Zone.</p>
+
+            <div class="btn-container">
+                <button class="next-btn" onclick="showPage('engineering')">Next Page: Lock System ➔</button>
+            </div>
         </div>
 
-        <div id="engineering">
+        <!-- PAGE 3: LOCK SYSTEM -->
+        <div id="engineering" class="page-content">
             <h2>The Engineering Innovation, The Water Lock System</h2>
             <p>Because Panama's central mountainous region rises well above sea level, a sea-level canal was impossible. Engineers designed a lock system acting as water elevators to lift ships over the Continental Divide.</p>
             
@@ -152,9 +235,14 @@
                     <li>After navigating across the lake, step-down locks lower the vessel back to sea level on the opposite ocean.</li>
                 </ol>
             </div>
+
+            <div class="btn-container">
+                <button class="next-btn" onclick="showPage('impact')">Next Page: Impact & Legacy ➔</button>
+            </div>
         </div>
 
-        <div id="impact">
+        <!-- PAGE 4: IMPACT -->
+        <div id="impact" class="page-content">
             <h2>Impact and Legacy</h2>
             <p>Opened in 1914, the Panama Canal fundamentally altered international maritime trade and public health standards worldwide.</p>
             
@@ -163,9 +251,14 @@
 
             <p><b>Global Trade:</b> Prior to the canal, vessels traveling between New York and San Francisco had to navigate around Cape Horn at the tip of South America—a hazardous 13,000-mile journey. The canal cut the voyage to roughly 5,200 miles, saving weeks of transit time and lowering trade costs.</p>
             <p><b>Public Health Advancement:</b> Dr. Gorgas’s successful vector control methods proved that large-scale disease control was achievable, setting a model for public health programs across the globe.</p>
+
+            <div class="btn-container">
+                <button class="next-btn" onclick="showPage('sources')">Next Page: Sources & References ➔</button>
+            </div>
         </div>
 
-        <div id="sources">
+        <!-- PAGE 5: SOURCES -->
+        <div id="sources" class="page-content">
             <h2>Research Sources and References</h2>
             <p><b>1. U.S. National Archives</b><br>
             Article, <a class="source-link" href="https://www.archives.gov/research/guide-fed-records/groups/185.html" target="_blank">National Archives Record Group 185: Records of the Panama Canal</a></p>
@@ -178,6 +271,10 @@
             
             <p><b>4. U.S. National Library of Medicine</b><br>
             Article, <a class="source-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1448259/" target="_blank">William Crawford Gorgas and the Eradication of Yellow Fever in Panama</a></p>
+
+            <div class="btn-container">
+                <button class="next-btn" onclick="showPage('home')">↩ Return to Home</button>
+            </div>
         </div>
 
     </div>
@@ -187,7 +284,7 @@
         <p>&copy; 2026 Black Gold Interactive. All rights reserved.</p>
     </div>
 
-    <!-- Web Audio API ASMR Sound Engine Script -->
+    <!-- Web Audio API ASMR Sound Engine & Page Navigation Script -->
     <script>
         let audioCtx = null;
 
@@ -200,14 +297,13 @@
             }
         }
 
-        // Generate synthesized ASMR mechanical click sound (down and up pitch options)
+        // ASMR mechanical mouse click generator
         function playASMRClick(freqMult = 1.0) {
             initAudio();
             if (!audioCtx) return;
 
             const t = audioCtx.currentTime;
 
-            // Soft transient pop using sine oscillator pitch drop
             const osc = audioCtx.createOscillator();
             const oscGain = audioCtx.createGain();
             osc.type = 'sine';
@@ -222,7 +318,6 @@
             osc.start(t);
             osc.stop(t + 0.015);
 
-            // Tactile white noise bump for mechanical sound feel
             const bufferSize = audioCtx.sampleRate * 0.02;
             const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
             const output = buffer.getChannelData(0);
@@ -250,7 +345,7 @@
             noise.stop(t + 0.02);
         }
 
-        // ASMR mouse wheel ratcheting click sound
+        // ASMR scroll wheel sound generator
         function playASMRScroll() {
             initAudio();
             if (!audioCtx) return;
@@ -284,7 +379,30 @@
             noise.stop(t + 0.01);
         }
 
-        // Mouse click listeners
+        // Multi-page navigation handler
+        function showPage(pageId) {
+            playASMRClick(1.3);
+
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.remove('active'));
+
+            const navLinks = document.querySelectorAll('.navbar a');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+            }
+
+            const selectedNav = document.getElementById('nav-' + pageId);
+            if (selectedNav) {
+                selectedNav.classList.add('active');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Global mouse listeners
         window.addEventListener('mousedown', () => {
             playASMRClick(1.0);
         });
@@ -293,7 +411,7 @@
             playASMRClick(1.25);
         });
 
-        // Throttle scroll events to sound like physical mouse wheel notches
+        // Scroll listener with throttle
         let lastScrollTime = 0;
         window.addEventListener('scroll', () => {
             const now = Date.now();
