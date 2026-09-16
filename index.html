@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Conquering the Land and Disease - Panama Canal</title>
+    <title>My History Fair Website - Panama Canal</title>
     <style>
         body {
             background-color: lightblue;
@@ -41,31 +41,27 @@
         .navbar a {
             color: white;
             font-weight: bold;
-            font-size: 16px;
-            margin: 0 10px;
+            font-size: 18px;
+            margin: 0 15px;
             text-decoration: none;
             cursor: pointer;
-            padding: 6px 12px;
-            border-radius: 4px;
-            transition: background-color 0.2s;
+            padding: 4px 8px;
         }
 
         .navbar a:hover, .navbar a.active {
-            background-color: #000080;
             text-decoration: underline;
         }
 
         .main-box {
             background-color: white;
             width: 90%;
-            max-width: 900px;
             margin: 20px auto;
-            padding: 25px;
+            padding: 20px;
             border: 3px solid black;
             min-height: 500px;
         }
 
-        /* Page Display Logic */
+        /* Page switching */
         .page-content {
             display: none;
         }
@@ -99,12 +95,12 @@
 
         ul, ol {
             font-size: 16px;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         p {
             font-size: 16px;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .source-link {
@@ -112,32 +108,11 @@
             text-decoration: underline;
         }
 
-        /* Interactive Buttons */
+        /* Bottom Page Navigation Button */
         .btn-container {
             text-align: center;
-            margin: 30px 0 10px 0;
-        }
-
-        .cta-btn {
-            background-color: #008CBA;
-            color: white;
-            padding: 14px 28px;
-            font-size: 18px;
-            font-weight: bold;
-            border: 2px solid darkblue;
-            border-radius: 6px;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            transition: transform 0.1s, background-color 0.2s;
-        }
-
-        .cta-btn:hover {
-            background-color: #005f73;
-            transform: scale(1.03);
-        }
-
-        .cta-btn:active {
-            transform: scale(0.97);
+            margin-top: 30px;
+            margin-bottom: 10px;
         }
 
         .next-btn {
@@ -146,14 +121,13 @@
             padding: 12px 24px;
             font-size: 16px;
             font-weight: bold;
-            border: none;
+            border: 2px solid black;
             border-radius: 4px;
             cursor: pointer;
-            box-shadow: 0 3px 5px rgba(0,0,0,0.2);
         }
 
         .next-btn:hover {
-            background-color: #000080;
+            background-color: navy;
         }
 
         .footer {
@@ -181,12 +155,8 @@
         <!-- PAGE 1: HOME -->
         <div id="home" class="page-content active">
             <h2>Home Page</h2>
-            <p>Building the Panama Canal was one of the most dangerous and massive engineering projects in human history. In the 1880s, a French team tried to dig the canal, but tropical diseases and harsh terrain killed over 20,000 workers, forcing them to abandon the project entirely.</p>
+            <p>Building the Panama Canal was one of the most dangerous and massive engineering projects in human history. In the 1880s, a French team tried to dig the canal, but tropical diseases and harsh terrain killed over 20,000 workers, forcing them to give up the project.</p>
             
-            <div class="btn-container">
-                <button class="cta-btn" onclick="showPage('medical')">EXPLORE THE EXHIBIT ➔</button>
-            </div>
-
             <img class="site-image" src="digging.jpg" alt="Train wreck and excavation work in Culebra Cut">
             <div class="caption">Primary Source Photo (1910): Workers stand beside a derailed dirt car (Car 258) and heavy excavation equipment during work in the treacherous Culebra Cut. (Source: U.S. Library of Congress)</div>
 
@@ -297,7 +267,7 @@
             }
         }
 
-        // ASMR mechanical mouse click generator
+        // ASMR mouse click sound
         function playASMRClick(freqMult = 1.0) {
             initAudio();
             if (!audioCtx) return;
@@ -345,7 +315,7 @@
             noise.stop(t + 0.02);
         }
 
-        // ASMR scroll wheel sound generator
+        // ASMR scroll sound
         function playASMRScroll() {
             initAudio();
             if (!audioCtx) return;
@@ -379,7 +349,7 @@
             noise.stop(t + 0.01);
         }
 
-        // Multi-page navigation handler
+        // Multi-page switcher
         function showPage(pageId) {
             playASMRClick(1.3);
 
