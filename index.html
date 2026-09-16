@@ -40,6 +40,7 @@
             margin-left: 15px;
             margin-right: 15px;
             text-decoration: none;
+            cursor: pointer;
         }
 
         .main-box {
@@ -185,6 +186,123 @@
         <p>History Fair Project 2026</p>
         <p>&copy; 2026 Black Gold Interactive. All rights reserved.</p>
     </div>
+
+    <!-- Web Audio API ASMR Sound Engine Script -->
+    <script>
+        let audioCtx = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        // Generate synthesized ASMR mechanical click sound (down and up pitch options)
+        function playASMRClick(freqMult = 1.0) {
+            initAudio();
+            if (!audioCtx) return;
+
+            const t = audioCtx.currentTime;
+
+            // Soft transient pop using sine oscillator pitch drop
+            const osc = audioCtx.createOscillator();
+            const oscGain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(1400 * freqMult, t);
+            osc.frequency.exponentialRampToValueAtTime(120 * freqMult, t + 0.015);
+
+            oscGain.gain.setValueAtTime(0.3, t);
+            oscGain.gain.exponentialRampToValueAtTime(0.001, t + 0.015);
+
+            osc.connect(oscGain);
+            oscGain.connect(audioCtx.destination);
+            osc.start(t);
+            osc.stop(t + 0.015);
+
+            // Tactile white noise bump for mechanical sound feel
+            const bufferSize = audioCtx.sampleRate * 0.02;
+            const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+            const output = buffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) {
+                output[i] = Math.random() * 2 - 1;
+            }
+
+            const noise = audioCtx.createBufferSource();
+            noise.buffer = buffer;
+
+            const filter = audioCtx.createBiquadFilter();
+            filter.type = 'bandpass';
+            filter.frequency.setValueAtTime(2200 * freqMult, t);
+            filter.Q.setValueAtTime(3.0, t);
+
+            const noiseGain = audioCtx.createGain();
+            noiseGain.gain.setValueAtTime(0.15, t);
+            noiseGain.gain.exponentialRampToValueAtTime(0.001, t + 0.02);
+
+            noise.connect(filter);
+            filter.connect(noiseGain);
+            noiseGain.connect(audioCtx.destination);
+
+            noise.start(t);
+            noise.stop(t + 0.02);
+        }
+
+        // ASMR mouse wheel ratcheting click sound
+        function playASMRScroll() {
+            initAudio();
+            if (!audioCtx) return;
+
+            const t = audioCtx.currentTime;
+
+            const bufferSize = audioCtx.sampleRate * 0.01;
+            const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+            const output = buffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) {
+                output[i] = Math.random() * 2 - 1;
+            }
+
+            const noise = audioCtx.createBufferSource();
+            noise.buffer = buffer;
+
+            const filter = audioCtx.createBiquadFilter();
+            filter.type = 'bandpass';
+            filter.frequency.setValueAtTime(3500, t);
+            filter.Q.setValueAtTime(4.0, t);
+
+            const gain = audioCtx.createGain();
+            gain.gain.setValueAtTime(0.08, t);
+            gain.gain.exponentialRampToValueAtTime(0.0005, t + 0.01);
+
+            noise.connect(filter);
+            filter.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            noise.start(t);
+            noise.stop(t + 0.01);
+        }
+
+        // Mouse click listeners
+        window.addEventListener('mousedown', () => {
+            playASMRClick(1.0);
+        });
+
+        window.addEventListener('mouseup', () => {
+            playASMRClick(1.25);
+        });
+
+        // Throttle scroll events to sound like physical mouse wheel notches
+        let lastScrollTime = 0;
+        window.addEventListener('scroll', () => {
+            const now = Date.now();
+            if (now - lastScrollTime > 60) {
+                playASMRScroll();
+                lastScrollTime = now;
+            }
+        });
+    </script>
 
 </body>
 </html>
