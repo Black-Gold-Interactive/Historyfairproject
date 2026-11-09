@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My History Project - Penicillin in WW2</title>
+<style>
+body{background-color:lightblue;font-family:Arial,sans-serif;color:black;margin:0;padding:0;}
+h1{color:darkblue;text-align:center;font-size:32px;background-color:white;padding:15px;margin:0;border-bottom:2px solid navy;}
+h2{color:darkblue;background-color:lightyellow;padding:8px;border:2px solid orange;margin-top:0;}
+.navbar{background-color:navy;text-align:center;padding:12px;position:sticky;top:0;z-index:100;}
+.navbar a{color:white;font-weight:bold;font-size:18px;margin:0 15px;text-decoration:none;cursor:pointer;padding:4px 8px;}
+.navbar a:hover,.navbar a.active{text-decoration:underline;}
+.main-box{background-color:white;width:90%;margin:20px auto;padding:20px;border:3px solid black;min-height:500px;}
+.page-content{display:none;}
+.page-content.active{display:block;}
+.box{background-color:#f0f0f0;border:2px dashed blue;padding:15px;margin:15px 0;}
+.site-image{width:100%;max-width:550px;display:block;margin:15px auto;border:2px solid black;}
+.caption{text-align:center;font-size:13px;font-style:italic;color:#333333;margin-bottom:20px;}
+ul,ol{font-size:16px;line-height:1.5;}
+p{font-size:16px;line-height:1.5;}
+.source-link{color:blue;text-decoration:underline;}
+.btn-container{text-align:center;margin-top:30px;margin-bottom:10px;}
+.next-btn{background-color:darkblue;color:white;padding:12px 24px;font-size:16px;font-weight:bold;border:2px solid black;border-radius:4px;cursor:pointer;}
+.next-btn:hover{background-color:navy;}
+.footer{text-align:center;font-size:11px;color:#555555;padding:20px;}
+</style>
+</head>
+<body>
+<h1>How Penicillin Saved Soldiers in WW2</h1>
+<div class="navbar">
+<a onclick="showPage('home')" id="nav-home" class="active">HOME</a>
+<a onclick="showPage('discovery')" id="nav-discovery">DISCOVERY</a>
+<a onclick="showPage('production')" id="nav-production">MAKING IT</a>
+<a onclick="showPage('impact')" id="nav-impact">WHY IT MATTERS</a>
+<a onclick="showPage('sources')" id="nav-sources">SOURCES</a>
+</div>
+<div class="main-box">
+<div id="home" class="page-content active">
+<h2>Home Page</h2>
+<p>Back in World War 1 and older wars, getting a small cut was really bad. Dirt got into the cuts and made people sick, and doctors had no good way to stop it. A lot of times, more soldiers died from sick wounds than from getting shot.</p>
+<img class="site-image" src="ww2_wounded.jpg" alt="WW2 doctors helping a wounded soldier">
+<div class="caption">Photo of doctors helping a hurt soldier in World War 2.</div>
+<p>Everything got better in World War 2 because doctors made a new medicine called penicillin. It was made from mold, and it killed bad germs. It stopped small cuts from getting bad, and it saved over 100000 soldiers.</p>
+<div class="btn-container">
+<button class="next-btn" onclick="showPage('discovery')">Next Page to Discovery</button>
+</div>
+</div>
+<div id="discovery" class="page-content">
+<h2>Finding the Mold</h2>
+<p>Penicillin started by accident in 1928 when a scientist named Alexander Fleming left a lab dish open in his London lab. A stray mold spore got inside and killed all the bacteria around it.</p>
+<p>Fleming knew it was cool, but he could not make enough of it to help real people. Later in 1939, two other smart guys named Howard Florey and Ernst Chain figured out how to clean the mold up so humans could take it.</p>
+<img class="site-image" src="fleming_lab.jpg" alt="Alexander Fleming working in his lab">
+<div class="caption">Photo of Alexander Fleming looking at his lab dishes.</div>
+<ul>
+<li>In 1928 Fleming found the mold by accident.</li>
+<li>In 1939 Florey and Chain made it work for people.</li>
+<li>In 1941 scientists went to America to make a ton of it.</li>
+</ul>
+<p>They needed to make a lot of it fast because soldiers were getting hurt in the war every day.</p>
+<div class="btn-container">
+<button class="next-btn" onclick="showPage('production')">Next Page to Making It</button>
+</div>
+</div>
+<div id="production" class="page-content">
+<h2>How They Made a Lot of It</h2>
+<p>Growing a tiny bit of mold in glass jars was way too slow. Scientists in America had to find ways to grow tons of mold fast so all the soldiers could get medicine.</p>
+<img class="site-image" src="peoria_lab.jpg" alt="Big metal tanks used to grow mold">
+<div class="caption">Photo of big metal tanks used to brew lots of mold at the same time.</div>
+<div class="box">
+<h3>3 Main Steps They Used</h3>
+<ol>
+<li>They fed the mold leftover corn juice, and it grew way faster.</li>
+<li>They stopped using small bottles and used giant 12000 gallon tanks with air bubbles inside.</li>
+<li>A worker found a rotten cantaloupe at the store, and its mold was 200 times stronger.</li>
+</ol>
+</div>
+<div class="btn-container">
+<button class="next-btn" onclick="showPage('impact')">Next Page to Why It Matters</button>
+</div>
+</div>
+<div id="impact" class="page-content">
+<h2>Why It Matters</h2>
+<p>By D-Day in 1944, the Allies had millions of doses of penicillin ready for the troops. It helped hurt soldiers heal up fast so they could go home or keep fighting.</p>
+<img class="site-image" src="ww2_poster.jpg" alt="Old WW2 poster talking about penicillin">
+<div class="caption">Photo of an old war poster about penicillin saving soldiers.</div>
+<p>In World War 1 almost 18 percent of soldiers with lung sickness died, but in World War 2 penicillin brought that down to less than 1 percent.</p>
+<p>Making penicillin in big factories opened the door for all the medicine we use at the doctor today when we get sick.</p>
+<div class="btn-container">
+<button class="next-btn" onclick="showPage('sources')">Next Page to Sources</button>
+</div>
+</div>
+<div id="sources" class="page-content">
+<h2>My Sources</h2>
+<p>Source 1: Penicillin Opening Era of Antibiotics, author National Chemical and Marlis, 1999. <a class="source-link" href="https://www.acs.org/education/whatischemistry/landmarks/flemingpenicillin.html" target="_blank">Link</a></p>
+<p>Source 2: Penicillin Discovery and Antibiotics Auction, author Alexander Fleming, December 11 1945. <a class="source-link" href="https://www.nobelprize.org/prizes/medicine/1945/fleming/lecture/" target="_blank">Link</a></p>
+<p>Source 3: Penicillin Wonder Drug of WW2, author US Department of Agriculture, 2001. <a class="source-link" href="https://www.ars.usda.gov/oc/timeline/penicillin/" target="_blank">Link</a></p>
+<p>Source 4: Mass Production of Penicillin in World War 2, author The National WW2 Museum, 2021. <a class="source-link" href="https://www.nationalww2museum.org/medical-innovations-antibiotics" target="_blank">Link</a></p>
+<div class="btn-container">
+<button class="next-btn" onclick="showPage('home')">Return to Home</button>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>History Project 2026</p>
+<p>By Darien Tracy</p>
+</div>
+<script>
+let audioCtx = null;
+function initAudio() {
+if (!audioCtx) {
+audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+}
+if (audioCtx.state === 'suspended') {
+audioCtx.resume();
+}
+}
+function playASMRClick(freqMult = 1.0) {
+initAudio();
+if (!audioCtx) return;
+const t = audioCtx.currentTime;
+const osc = audioCtx.createOscillator();
+const oscGain = audioCtx.createGain();
+osc.type = 'sine';
+osc.frequency.setValueAtTime(1400 * freqMult, t);
+osc.frequency.exponentialRampToValueAtTime(120 * freqMult, t + 0.015);
+oscGain.gain.setValueAtTime(0.3, t);
+oscGain.gain.exponentialRampToValueAtTime(0.001, t + 0.015);
+osc.connect(oscGain);
+oscGain.connect(audioCtx.destination);
+osc.start(t);
+osc.stop(t + 0.015);
+const bufferSize = audioCtx.sampleRate * 0.02;
+const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+const output = buffer.getChannelData(0);
+for (let i = 0; i < bufferSize; i++) {
+output[i] = Math.random() * 2 - 1;
+}
+const noise = audioCtx.createBufferSource();
+noise.buffer = buffer;
+const filter = audioCtx.createBiquadFilter();
+filter.type = 'bandpass';
+filter.frequency.setValueAtTime(2200 * freqMult, t);
+filter.Q.setValueAtTime(3.0, t);
+const noiseGain = audioCtx.createGain();
+noiseGain.gain.setValueAtTime(0.15, t);
+noiseGain.gain.exponentialRampToValueAtTime(0.001, t + 0.02);
+noise.connect(filter);
+filter.connect(noiseGain);
+noiseGain.connect(audioCtx.destination);
+noise.start(t);
+noise.stop(t + 0.02);
+}
+function playASMRScroll() {
+initAudio();
+if (!audioCtx) return;
+const t = audioCtx.currentTime;
+const bufferSize = audioCtx.sampleRate * 0.012;
+const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+const output = buffer.getChannelData(0);
+for (let i = 0; i < bufferSize; i++) {
+output[i] = Math.random() * 2 - 1;
+}
+const noise = audioCtx.createBufferSource();
+noise.buffer = buffer;
+const filter = audioCtx.createBiquadFilter();
+filter.type = 'bandpass';
+filter.frequency.setValueAtTime(2800, t);
+filter.Q.setValueAtTime(3.0, t);
+const gain = audioCtx.createGain();
+gain.gain.setValueAtTime(0.35, t);
+gain.gain.exponentialRampToValueAtTime(0.001, t + 0.012);
+noise.connect(filter);
+filter.connect(gain);
+gain.connect(audioCtx.destination);
+noise.start(t);
+noise.stop(t + 0.012);
+}
+function showPage(pageId) {
+playASMRClick(1.3);
+const pages = document.querySelectorAll('.page-content');
+pages.forEach(page => page.classList.remove('active'));
+const navLinks = document.querySelectorAll('.navbar a');
+navLinks.forEach(link => link.classList.remove('active'));
+const selectedPage = document.getElementById(pageId);
+if (selectedPage) {
+selectedPage.classList.add('active');
+}
+const selectedNav = document.getElementById('nav-' + pageId);
+if (selectedNav) {
+selectedNav.classList.add('active');
+}
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+window.addEventListener('mousedown', () => {
+playASMRClick(1.0);
+});
+window.addEventListener('mouseup', () => {
+playASMRClick(1.25);
+});
+let lastScrollTime = 0;
+window.addEventListener('scroll', () => {
+const now = Date.now();
+if (now - lastScrollTime > 60) {
+playASMRScroll();
+lastScrollTime = now;
+}
+});
+</script>
+</body>
+</html>
